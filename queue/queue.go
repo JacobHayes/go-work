@@ -12,6 +12,12 @@ func (w *Work) Queue(item string) {
 	}
 }
 
+func (w *Work) QueueN(items []string) {
+	for _, item := range items {
+		w.Queue(item)
+	}
+}
+
 func (w *Work) Start(item string) {
 	w.Started[item] = true
 	delete(w.Queued, item)
